@@ -1,0 +1,12 @@
+<% include header.tt %>
+<% include sidebar.tt %>
+<% include error.tt %>
+
+<div id="page">
+
+<h3>Toujours pas admin ?</h3>
+
+</div>
+
+</div> <!-- fin de colonne -->
+</div> <!-- fin de ligne -->

@@ -1,0 +1,44 @@
+<% include header.tt %>
+<% include sidebar.tt %>
+<% include error.tt %>
+
+<div id="page">
+
+<h3>S'enregistrer</h3>
+<hr />
+
+<form class="form-horizontal" role="form" action='/user/add/' method="post">
+
+    <div class="form-group">
+        <label for="login" class="col-sm-2 control-label">Identifiant</label>
+        <div class="col-sm-10">
+            <input type="text" id="login" name="login" class="form-control" placeholder="Votre futur identifiant de connexion">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Mot de passe</label>
+        <div class="col-sm-10">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password2" class="col-sm-2 control-label">Mot de passe (vérification)</label>
+        <div class="col-sm-10">
+            <input type="password" id="password2" name="password2" class="form-control" placeholder="Mot de passe (pour vérification)">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">S'enregistrer</button>
+        </div>
+    </div>
+
+</form>
+
+</div>
+
+</div> <!-- fin de colonne -->
+</div> <!-- fin de ligne -->

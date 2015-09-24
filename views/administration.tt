@@ -1,0 +1,133 @@
+<% include header.tt %>
+<% include sidebar.tt %>
+<% include error.tt %>
+
+<div id="page">
+
+    <div id="utilisateurs">
+
+        <h3>Utilisateurs enregistrés</h3>
+        <table class="table" >
+            <tr>
+                <th>utilisateur</th>
+                <th>firstname</th>
+                <th>secondname</th>
+                <th>email</th>
+                <th>pseudo</th>
+                <th>address</th>
+                <th>postalcode</th>
+                <th>town</th>
+                <th>supprimer</th>
+                <th>admin</th>
+            </tr>
+
+            <% FOREACH u IN users %>
+            <tr>
+                <td><% u.userid %></td>
+                <td><% u.firstname %></td>
+                <td><% u.secondname %></td>
+                <td><% u.email %></td>
+                <td><% u.pseudo %></td>
+                <td><% u.address %></td>
+                <td><% u.postalcode %></td>
+                <td><% u.town %></td>
+
+                <td>
+                    <a href="/user/del/<% u.userid %>"><button type="button" class="btn btn-danger">del</button></a>
+                </td>
+
+                <td>
+                    <a href="/user/toggleadmin/<% u.userid %>">
+                        <% IF u.admin == 1 %>
+                        <button type="button" class="btn btn-danger">toggle user</button>
+                        <% ELSE %>
+                        <button type="button" class="btn btn-primary">toggle admin</button>
+                        <% END %>
+                    </a>
+                </td>
+
+            </tr>
+            <% END %>
+
+        </table>
+
+    </div>
+
+    <hr />
+    <div id="adduser">
+
+        <h3>Ajout d'un utilisateur</h3>
+
+        <form class="form-horizontal" role="form" action='/user/add' method='post'>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='userid'>userid</label>
+                <div class="col-sm-3">
+                    <input type='text' id='userid' name='userid' class="form-control" placeholder='userid'/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='firstname'>Prénom</label>
+                <div class="col-sm-3">
+                    <input type='text' id='firstname' name='firstname' class="form-control" placeholder='firstname'/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='secondname'>Nom</label>
+                <div class="col-sm-3">
+                    <input type='text' id='secondname' name='secondname' class="form-control" placeholder='secondname'/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='pseudo'>Pseudo</label>
+                <div class="col-sm-3">
+                    <input type='text' id='pseudo' name='pseudo' class="form-control" placeholder='pseudo'/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='email'>email</label>
+                <div class="col-sm-3">
+                    <input type='text' id='email' name='email' class="form-control" placeholder='email' />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='passwd'>Mot de passe</label>
+                <div class="col-sm-3">
+                    <input type='text' id='passwd' name='passwd' class="form-control" placeholder='passwd'/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='town'>Ville</label>
+                <div class="col-sm-3">
+                    <input type='text' id='town' name='town' class="form-control" placeholder='town' />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='postalcode'>Code postal</label>
+                <div class="col-sm-3">
+                    <input type='text' id='postalcode' name='postalcode' class="form-control" placeholder='postalcode' />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='address'>Adresse</label>
+                <div class="col-sm-3">
+                    <textarea id='address' name='address' class="form-control" placeholder='address'></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for='admin'>Admin ?</label>
+                <div class="col-sm-3">
+                    <select id='admin' name='admin' >
+                        <option value="0" selected >Non</option>
+                        <option value="1">Oui</option>
+                    </select>
+                </div>
+            </div>
+
+            <input type='submit' id='submit' class="btn btn-success btn-xs" value='✔' />
+        </form>
+    </div>
+
+</div>
+
+</div> <!-- fin de colonne -->
+</div> <!-- fin de ligne -->

@@ -1,0 +1,69 @@
+<% include header.tt %>
+<% include sidebar.tt %>
+<% include error.tt %>
+
+<div id="page">
+
+    <table class="table" >
+        <tr>
+            <th>contractentryid</th>
+            <th>start date</th>
+            <th>duration</th>
+            <th>nb</th>
+            <th>delete it</th>
+        </tr>
+
+        <% FOREACH ce in contractentries %>
+        <tr>
+            <td><% ce.contractentryid %></td>
+            <td><% ce.startdate %></td>
+            <td><% ce.duration %></td>
+            <td><% ce.nb %></td>
+            <td>
+                <a href="/contractentry/del/<% ce.contractentryid %>" class="list-group-item ">Delete it</a>
+            </td>
+        </tr>
+        <% END %>
+    </table>
+
+    <hr />
+    <a href="/contract/genpdf/<% contractid %>" class="list-group-item ">Gen PDF</a>
+    <hr />
+    <h3>Ajout d'une entrée</h3>
+
+    <form class="form-horizontal" action='/contractentry/add/<% contractid %>' method='post' role="form" >
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='contractentryid'>contractentryid</label>
+            <div class="col-sm-3">
+                <input type='text' id='contractentryid' name='contractentryid' class="form-control" placeholder='contractentryid' value='<% contractentryid %>' />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='startdate'>startdate</label>
+            <div class="col-sm-3">
+                <input type='text' id='startdate' name='startdate' class="form-control" placeholder='startdate'/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='duration'>duration</label>
+            <div class="col-sm-3">
+                <input type='text' id='duration' name='duration' class="form-control" placeholder='duration'/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='nb'>Nombre</label>
+            <div class="col-sm-3">
+                <input type='text' id='nb' name='nb' class="form-control" value='1'/>
+            </div>
+        </div>
+
+        <input type='submit' id='submit' class="btn btn-success btn-xs" value='✔' />
+    </form>
+
+</div>
+
+</div> <!-- fin de colonne -->
+</div> <!-- fin de ligne -->

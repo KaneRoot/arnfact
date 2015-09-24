@@ -1,0 +1,137 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{marvosym, geometry, graphicx, multicol}
+\usepackage{textcomp}
+%\usepackage{gensymb}
+\usepackage[official]{eurosym}
+
+% pied de page
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\geometry{hmargin=1cm, vmargin=1cm, bottom=3cm}
+\addtolength{\parskip}{6pt}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\footrulewidth}{1pt}
+
+\fancyfoot[C]{
+    Alsace Réseau Neutre, association de droit local 
+alsacien-mosellan\\
+Site web : http://www.arn-fai.net\\
+Siège : 18 rue Frédéric, 67100 STRASBOURG -  N°SIRET : 752 971 960 00014}
+
+\begin{document}
+%\thispagestyle{empty}
+
+\begin{flushleft}
+    \begin{minipage}[t]{7cm}
+        \begin{tabular}{ c c c }
+            \begin{minipage}{5.2cm}
+                \includegraphics[width=160pt,height=75pt]{logo-arn}
+            \end{minipage} 
+
+            & 
+
+            \begin{minipage}{5cm}
+                {\footnotesize
+                        \textbf{Alsace Réseau Neutre}\\
+                        18 rue Frédéric\\
+                        67100 Strasbourg\\
+                        \Telefon~06 95 42 58 41\\
+                        \Letter~contact@arn-fai.net\\
+                }
+
+                {\scriptsize
+                        \textbf{SIRET :} 752 971 960 00014
+                }
+            \end{minipage}
+
+            &
+
+            \begin{minipage}{5cm}
+
+                \vspace{0.5cm}
+                {\footnotesize
+                        \textbf{TPL_PRENOM TPL_NOM}\\
+                        %\textbf{forme juridique}\\
+                        TPL_ADRESSE\\
+                        TPL_CODE_POSTAL TPL_VILLE\\
+                }
+            \end{minipage}
+        \end{tabular}
+
+    \end{minipage}
+\end{flushleft}
+
+\vspace{0.5cm}
+
+\textbf{Facture n°BRIQUETPL_DATE_EMISSION_NONFORMAT-TPL_IDENTIFIANT-TPL_NUMERO_FACTURE}
+
+Date d'émission : TPL_DATE_EMISSION_FORMAT\\
+
+\vspace{0.5cm}
+
+\resizebox{0.98\textwidth}{!}{
+    \begin{tabular}{|l|l|l|r|}
+        \hline
+        DESIGNATION DES PRODUITS OU PRESTATIONS & PRIX UNITAIRE HT & QUANTITE & TOTAL HT \\
+        \hline
+        %1 & 4 & 1 & 3 \\ \hline
+        TPL_LINES
+        %autre & ligne & si & besoin \\ \hline
+    \end{tabular}
+}
+
+\vspace{0.5cm}
+
+\begin{multicols}{2}
+
+\begin{flushleft}
+
+Date de règlement : TPL_DATE_EMISSION_FORMAT\\
+Mode de règlement : TPL_TYPE_REGLEMENT\\
+Date d’exécution de la vente ou de la prestation : \\
+~~~~BRIQUE vendue le TPL_DATE_DEBUT_PRESTAT\\
+% Taux des pénalités à compter du :\\
+Délai de paiement : comptant date de facture
+% en l’absence de paiement :\\
+% Conditions d’escompte :
+
+\end{flushleft}
+
+\columnbreak
+
+\begin{flushright}
+    \begin{tabular}{ |c|c| }
+          \hline
+          TOTAL HT & TPL_MONTANT_TOT \euro{} \\
+            \hline
+        \end{tabular}
+
+    TVA non applicable, art. 293B du CGI
+\end{flushright}
+
+\end{multicols}
+
+%\vspace{3cm}
+%
+%\begin{description}
+%    \item[]
+%Paiement par chèque à l'ordre de Alsace Réseau Neutre, 18 rue Frédéric, 67100 STRASBOURG.
+%    \item[]
+%Ou par virement : 
+%
+%\begin{itemize}
+%    \item IBAN : FR76 1027 8010 8200 0208 2820 118 
+%    \item BIC : CMCIFR2AXXX
+%\end{itemize}
+%
+%    \item[]
+%Référence à indiquer lors du règlement : ppittoli\_BRIQUE\_12Mois.
+%\end{description}
+
+\end{document}

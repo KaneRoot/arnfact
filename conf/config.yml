@@ -1,0 +1,23 @@
+tmpdir: '/media/fast/'
+
+database:
+    sgbd: mysql # other options : see DBI module
+    name: arnfact
+    host: localhost
+    port: 3306
+    user: myuser
+    passwd: "my-not-so-dummy-password"
+
+contracttypes:
+    vpn:
+        tpldir: './tpl/vpn/'
+        factdir: './fact/vpn/'
+        price: 4
+    vps:
+        tpldir: './tpl/vps/'
+        factdir: './fact/vps/'
+        price: 8
+    brique:
+        tpldir: './tpl/brique/'
+        factdir: './fact/brique/'
+        price: 70

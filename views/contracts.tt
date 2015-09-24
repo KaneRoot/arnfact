@@ -1,0 +1,111 @@
+<% include header.tt %>
+<% include sidebar.tt %>
+<% include error.tt %>
+
+<div id="page">
+
+    <table class="table" >
+        <tr>
+            <th>contractid</th>
+            <th>userid</th>
+            <th>contracttype</th>
+            <th>payment</th>
+            <th>emissiondate</th>
+            <th>setupdate</th>
+            <th>lastpaymentdate</th>
+            <th>delete it</th>
+            <th>gen pdf</th>
+        </tr>
+
+        <% FOREACH contract in contracts %>
+        <tr>
+            <td>
+                <a href="/contractentry/list/<% contract.contractid %>" class="list-group-item "><% contract.contractid %></a>
+            </td>
+            <td><% contract.userid %></td>
+            <td><% contract.contracttype %></td>
+            <td><% contract.payment %></td>
+            <td><% contract.emissiondate %></td>
+            <td><% contract.setupdate %></td>
+            <td><% contract.lastpaymentdate %></td>
+            <td>
+                <a href="/contract/del/<% contract.contractid %>" class="list-group-item ">Delete it</a>
+            </td>
+            <td>
+                <a href="/contract/genpdf/<% contract.contractid %>" class="list-group-item ">Gen PDF</a>
+            </td>
+        </tr>
+        <% END %>
+    </table>
+
+    <hr />
+    <h3>Ajout d'un contrat</h3>
+
+    <form class="form-horizontal" role="form" action='/contract/add' method='post'>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='contractid'>contractid</label>
+            <div class="col-sm-3">
+                <input type='text' id='contractid' name='contractid' class="form-control" placeholder='contractid' value='<% contractid %>' />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='userid'>userid</label>
+            <div class="col-sm-3">
+                <select id='userid' name='userid' >
+                    <% FOREACH uid in users %>
+                    <option value="<% uid %>"><% uid %></option>
+                    <% END %>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='contracttype'>contracttype</label>
+            <div class="col-sm-3">
+                <select id='contracttype' name='contracttype' >
+                    <% FOREACH ct in contracttypes %>
+                    <option value="<% ct %>"><% ct %></option>
+                    <% END %>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='payment'>payment</label>
+            <div class="col-sm-3">
+                <select id='payment' name='payment' >
+                    <option value="virement">virement</option>
+                    <option value="chèque">chèque</option>
+                    <option value="liquide">liquide</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='setupdate'>setupdate</label>
+            <div class="col-sm-3">
+                <input type='text' id='setupdate' id='setupdate' name='setupdate' class="form-control" placeholder='setupdate'/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='emissiondate'>Date d'émission</label>
+            <div class="col-sm-3">
+                <input type='text' id='emissiondate' id='emissiondate' name='emissiondate' class="form-control" placeholder='emissiondate'/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for='lastpaymentdate'>lastpaymentdate</label>
+            <div class="col-sm-3">
+                <input type='text' id='lastpaymentdate' id='lastpaymentdate' name='lastpaymentdate' class="form-control" placeholder='lastpaymentdate'/>
+            </div>
+        </div>
+        <input type='submit' id='submit' class="btn btn-success btn-xs" value='✔' />
+    </form>
+
+</div>
+
+</div> <!-- fin de colonne -->
+</div> <!-- fin de ligne -->
